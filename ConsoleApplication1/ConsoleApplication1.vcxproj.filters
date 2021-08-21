@@ -30,12 +30,18 @@
     <ClCompile Include="ViewService.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="PayService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ViewService.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="TableService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PayService.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

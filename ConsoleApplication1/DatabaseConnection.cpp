@@ -2,10 +2,8 @@
 #include "DatabaseConnection.h"
 #include "TableService.h"
 
-
-#pragma comment(lib,"wsock32.lib")
-#pragma comment(lib,"libmysql.lib")
-
+//#pragma comment(lib,"wsock32.lib")
+//#pragma comment(lib,"libmysql.lib")
 using namespace std;
 
 
@@ -31,7 +29,6 @@ void DatabaseConnection::InitConnection() {
 		printf("Connection failed (%s)\n", mysql_error(mysql));
 	else
 		printf("Connection succeeded\n");
-	cout << this_thread::get_id() << endl;
 }
 
 void DatabaseConnection::CloseConnection() {

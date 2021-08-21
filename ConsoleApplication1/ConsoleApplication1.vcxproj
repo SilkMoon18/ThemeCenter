@@ -211,10 +211,12 @@
     <ClCompile Include="DatabaseConnection.cpp" />
     <ClCompile Include="TableService.cpp" />
     <ClCompile Include="ViewService.cpp" />
+    <ClCompile Include="PayService.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TableService.h" />
     <ClInclude Include="ViewService.h" />
+    <ClInclude Include="PayService.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

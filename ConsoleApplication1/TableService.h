@@ -62,33 +62,17 @@ public:
 	};
 
 	DataObject DoQuery(string targetTableName, string id);
-	void DoInsert(DataObject u);
-	void DoModify(DataObject u);
+	void DoInsert(DataObject obj);
+	void DoModify(DataObject obj);
 	void DoDelete(string targetTableName, string id);
+	void ToSignIn(string userId);
 
 	TableService();
 
 private:
 	mutex mutexLock;
 	DatabaseConnection conn;
-
-};
-
-
-class ViewService {
-
-public:
-	void UpdateRanking(TableService::ProductType type);
-	void KeepUpdatingRanking(TableService::ProductType type, int updateIntervalInSecond);
-	vector<DataObject> GetRanking();
-
-	ViewService();
-
-private:
-	vector<DataObject> ranking;
-	DatabaseConnection conn;
-	mutex mutexLock;
-
+	bool useCredit = false;
 };
 
 #endif
