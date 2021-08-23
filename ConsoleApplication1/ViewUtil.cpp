@@ -1,18 +1,18 @@
-#include "ViewService.h"
+#include "ViewUtil.h"
 
 using namespace std;
 
 
-ViewService::ViewService() {
+ViewUtil::ViewUtil() {
 
 }
 
-void ViewService::UpdateRanking(TableService::ProductType type) {
+void ViewUtil::UpdateRanking(TableUtil::ProductType type) {
 
 	conn.InitConnection();
 
 	string query = "select * from Product where (`product`.`Price` ";
-	if (type == TableService::ProductType::paid)
+	if (type == TableUtil::ProductType::paid)
 		query += " !";
 	query += "= 0) order by `product`.`Downloads` desc; ";
 
@@ -24,9 +24,9 @@ void ViewService::UpdateRanking(TableService::ProductType type) {
 		ranking.clear();
 
 		string table;
-		if (type == TableService::ProductType::free)
+		if (type == TableUtil::ProductType::free)
 			table = "TopFree";
-		else if (type == TableService::ProductType::paid)
+		else if (type == TableUtil::ProductType::paid)
 			table = "TopPaid";
 
 		MYSQL_RES* mysqlRes;
@@ -77,14 +77,14 @@ void ViewService::UpdateRanking(TableService::ProductType type) {
 
 }
 
-void ViewService::KeepUpdatingRanking(TableService::ProductType type, int updateIntervalInSecond) {
+void ViewUtil::KeepUpdatingRanking(TableUtil::ProductType type, int updateIntervalInSecond) {
 	while (true) {
 		UpdateRanking(type);
 		Sleep(updateIntervalInSecond * 1000);
 	}
 }
 
-vector<DataObject> ViewService::GetRanking() {
+vector<DataObject> ViewUtil::GetRanking() {
 	unique_lock<mutex> lock(mutexLock);
 	return ranking;
 }

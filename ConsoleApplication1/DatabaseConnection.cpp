@@ -1,9 +1,9 @@
 #include <iostream>
 #include "DatabaseConnection.h"
-#include "TableService.h"
+#include "TableUtil.h"
 
-//#pragma comment(lib,"wsock32.lib")
-//#pragma comment(lib,"libmysql.lib")
+#pragma comment(lib,"wsock32.lib")
+#pragma comment(lib,"libmysql.lib")
 using namespace std;
 
 

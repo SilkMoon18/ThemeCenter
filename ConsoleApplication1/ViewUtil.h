@@ -1,18 +1,18 @@
 #ifndef _VIEW_SERVICE_H_
 #define _VIEW_SERVICE_H_
 
-#include "TableService.h"
+#include "TableUtil.h"
 #include "DatabaseConnection.h"
 
 
-class ViewService {
+class ViewUtil {
 
 public:
-	void UpdateRanking(TableService::ProductType type);
-	void KeepUpdatingRanking(TableService::ProductType type, int updateIntervalInSecond);
+	void UpdateRanking(TableUtil::ProductType type);
+	void KeepUpdatingRanking(TableUtil::ProductType type, int updateIntervalInSecond);
 	vector<DataObject> GetRanking();
 
-	ViewService();
+	ViewUtil();
 
 private:
 	vector<DataObject> ranking;

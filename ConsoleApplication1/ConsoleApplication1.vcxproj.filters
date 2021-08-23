@@ -24,24 +24,24 @@
     <ClCompile Include="DatabaseConnection.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="TableService.cpp">
+    <ClCompile Include="TableUtil.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="ViewService.cpp">
+    <ClCompile Include="ViewUtil.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="PayService.cpp">
+    <ClCompile Include="PaySvr.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ViewService.h">
+    <ClInclude Include="ViewUtil.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="TableService.h">
+    <ClInclude Include="TableUtil.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="PayService.h">
+    <ClInclude Include="PaySvr.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

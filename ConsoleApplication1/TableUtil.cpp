@@ -1,16 +1,16 @@
 #include <iostream>
-#include "TableService.h"
+#include "TableUtil.h"
 
 using namespace std;
 
 
 // TableService
 
-TableService::TableService() {
+TableUtil::TableUtil() {
 
 }
 
-DataObject TableService::DoQuery(string targetTableName, string id) {
+DataObject TableUtil::DoQuery(string targetTableName, string id) {
 
 	conn.InitConnection();
 
@@ -65,7 +65,7 @@ DataObject TableService::DoQuery(string targetTableName, string id) {
 	return obj;
 }
 
-void TableService::DoInsert(DataObject obj) {
+void TableUtil::DoInsert(DataObject obj) {
 
 	conn.InitConnection();
 
@@ -94,7 +94,7 @@ void TableService::DoInsert(DataObject obj) {
 	conn.CloseConnection();
 }
 
-void TableService::DoModify(DataObject obj) {
+void TableUtil::DoModify(DataObject obj) {
 
 	conn.InitConnection();
 
@@ -117,7 +117,7 @@ void TableService::DoModify(DataObject obj) {
 	conn.CloseConnection();
 }
 
-void TableService::DoDelete(string targetTableName, string id) {
+void TableUtil::DoDelete(string targetTableName, string id) {
 
 	conn.InitConnection();
 
@@ -131,16 +131,11 @@ void TableService::DoDelete(string targetTableName, string id) {
 	conn.CloseConnection();
 }
 
-void TableService::ToSignIn(string userId) {
+void ToSignIn(string userId) {
 
-	conn.InitConnection();
-	
-	string query = "update user set Credit = Credit + 1 where `user id` = " + userId;
-
-	if (mysql_query(conn.GetMysql(), query.c_str()))
-		printf("Signin failed (%s)\n", mysql_error(conn.GetMysql()));
-	else
-		printf("Signin succeeded\n");
-
-	conn.CloseConnection();
+	TableUtil tu;
+	DataObject obj = tu.DoQuery("User", userId);
+	float newValue = stof(obj.dataMap["Credit"].value) + 1;
+	obj.dataMap["Credit"].value = to_string(newValue);
+	tu.DoModify(obj);
 }

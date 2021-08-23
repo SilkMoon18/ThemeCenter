@@ -12,6 +12,8 @@
 using namespace std;
 
 
+void ToSignIn(string userId);
+
 struct DataObject {
 
 	enum class DataType {
@@ -53,7 +55,7 @@ struct DataObject {
 };
 
 
-class TableService {
+class TableUtil {
 
 public:
 	enum class ProductType {
@@ -65,9 +67,8 @@ public:
 	void DoInsert(DataObject obj);
 	void DoModify(DataObject obj);
 	void DoDelete(string targetTableName, string id);
-	void ToSignIn(string userId);
 
-	TableService();
+	TableUtil();
 
 private:
 	mutex mutexLock;

@@ -1,14 +1,14 @@
 #include <iostream>
-#include "PayService.h"
+#include "PaySvr.h"
 
 using namespace std;
 
 
-PayService::PayService() {
+PaySvr::PaySvr() {
 
 }
 
-DataObject PayService::DownloadProduct(string userId, string productId) {
+DataObject PaySvr::DownloadProduct(string userId, string productId) {
 
 	DataObject product = tableService.DoQuery("Product", productId);
 	DataObject user = tableService.DoQuery("User", userId);
@@ -31,11 +31,11 @@ DataObject PayService::DownloadProduct(string userId, string productId) {
 	return product;
 }
 
-void PayService::SetUseCredit(bool use) {
+void PaySvr::SetUseCredit(bool use) {
 	useCredit = use;
 }
 
-bool PayService::PayInCredit(DataObject user, float price) {
+bool PaySvr::PayInCredit(DataObject user, float price) {
 
 	float credit = stof(user.dataMap["Credit"].value);
 	float cost = price * 10;
@@ -52,7 +52,7 @@ bool PayService::PayInCredit(DataObject user, float price) {
 	}
 }
 
-bool PayService::PayInCash() {
+bool PaySvr::PayInCash() {
 	cout << "Paid in Cash" << endl;
 	return true;
 }

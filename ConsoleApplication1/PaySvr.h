@@ -1,10 +1,10 @@
 #ifndef _PAY_SERVICE_H_
 #define _PAY_SERVICE_H_
 
-#include "TableService.h"
+#include "TableUtil.h"
 
 
-class PayService {
+class PaySvr {
 
 public:
 	DataObject DownloadProduct(string userId, string productId);
@@ -12,11 +12,11 @@ public:
 	bool PayInCredit(DataObject user, float price);
 	bool PayInCash();
 
-	PayService();
+	PaySvr();
 
 private:
 	bool useCredit = false;
-	TableService tableService;
+	TableUtil tableService;
 };
 
 #endif

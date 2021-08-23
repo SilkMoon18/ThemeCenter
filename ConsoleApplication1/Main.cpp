@@ -1,14 +1,14 @@
 #include <iostream>
-#include "TableService.h"
-#include "ViewService.h"
+#include "TableUtil.h"
+#include "ViewUtil.h"
 #include "DatabaseConnection.h"
-#include "PayService.h"
+#include "PaySvr.h"
 
 using namespace std;
 
 
 int main() {
-	PayService ps;
+	PaySvr ps;
 	ps.SetUseCredit(true);
 	DataObject obj = ps.DownloadProduct("1", "6");
 
